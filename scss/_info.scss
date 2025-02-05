@@ -1,0 +1,47 @@
+.main__info {
+  width: 50%;
+  background: $neutral-color;
+  box-shadow: grey 0 0 5px 2px;
+  border-radius: 5px;
+  font-weight: map-get($font-weights, "medium");
+  color: $text-color;
+
+  span {
+    color: $primary-color;
+  }
+
+  #{&}-heading {
+    font-size: 1.5rem;
+    padding: 0.5rem 2rem;
+  }
+
+  #{&}-details {
+    padding: 0.5rem 2rem;
+    font-size: 85%;
+    line-height: 2;
+  }
+
+  #{&}-actionBtns {
+    padding: 0.5rem 2rem;
+    text-align: right;
+
+    &1 {
+      font-size: 90%;
+      padding: 0.5rem 1rem;
+      box-shadow: none;
+      border: $primary-color 1px solid;
+      border-radius: 5px;
+
+      &:hover {
+        background: $primary-color;
+        color: $neutral-color;
+      }
+    }
+
+    &2 {
+      @extend .main__info-actionBtns1;
+      background: $primary-color;
+      color: $neutral-color;
+    }
+  }
+}

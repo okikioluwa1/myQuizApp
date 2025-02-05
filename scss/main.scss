@@ -1,0 +1,25 @@
+@import "./config";
+@import "./info";
+@import "./quiz";
+
+.main {
+  height: 100vh;
+  width: 100%;
+  background: $primary-color;
+  @include flexDisplay(row);
+
+  #{&}__start-btn {
+    border: none;
+  }
+}
+
+.btn {
+  padding: 1rem 2rem;
+  background: $neutral-color;
+  color: $primary-color;
+  font-weight: map-get($font-weights, "medium");
+  border-radius: 5px;
+  box-shadow: grey 0 0 5px 1px;
+  font-size: 2rem;
+  cursor: pointer;
+}
