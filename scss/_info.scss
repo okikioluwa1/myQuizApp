@@ -1,31 +1,44 @@
 .main__info {
-  width: 50%;
+  width: 75%;
+  max-width: 700px;
   background: $neutral-color;
   box-shadow: grey 0 0 5px 2px;
   border-radius: 5px;
   font-weight: map-get($font-weights, "medium");
   color: $text-color;
+  font-size: 0.8rem;
 
   span {
     color: $primary-color;
   }
 
   #{&}-heading {
-    font-size: 1.5rem;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
   }
 
   #{&}-details {
-    padding: 0.5rem 2rem;
-    font-size: 85%;
+    padding: 0.5rem 1rem;
+    font-size: 70%;
     line-height: 2;
   }
 
   #{&}-actionBtns {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     text-align: right;
+    @include flexDisplay(row);
+    justify-content: flex-end;
+
+    a {
+      margin-right: 0.5rem;
+      width: 40%;
+    }
+
+    a:last-of-type {
+      margin-right: 0;
+    }
 
     &1 {
+      width: 100%;
       font-size: 90%;
       padding: 0.5rem 1rem;
       box-shadow: none;

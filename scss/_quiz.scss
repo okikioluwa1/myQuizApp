@@ -3,21 +3,27 @@
     @include flexDisplay(row);
     justify-content: space-between;
     padding: 0.5rem 0;
+
+    .subject-right {
+      width: 45%;
+      font-size: 90%;
+      max-width: 110px;
+    }
   }
 
   #{&}-timer {
     background: $secondary-color;
-    margin-right: 2rem;
-    padding: 0.2rem;
+    margin-right: 1rem;
+    padding: 0.3rem;
     border-radius: 2px;
-    font-size: 90%;
+
     @include flexDisplay(row);
-    grid-gap: 0.4rem;
+    grid-gap: 0.3rem;
 
     .time {
       background: $text-color;
       color: $neutral-color;
-      padding: 0.1rem 0.3rem;
+      padding: 0.1rem 0.2rem;
       border-radius: 5px;
     }
   }
@@ -35,13 +41,14 @@
   }
 
   #{&}-question {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
   }
 
   #{&}-options {
     @include flexDisplay(column);
+    font-size: 90%;
     grid-gap: 1rem;
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 1rem 2rem 1rem;
     align-items: flex-start;
 
     p.wrongAnswer {
@@ -69,15 +76,17 @@
   #{&}-pagination {
     @include flexDisplay(row);
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 
     .next-btn {
+      width: 45%;
+      max-width: 140px;
       background: $primary-color;
       padding: 0.5rem 1rem;
       color: $neutral-color;
       border: none;
       box-shadow: none;
-      font-size: 1rem;
+      font-size: 0.7rem;
     }
   }
 }

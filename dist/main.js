@@ -467,21 +467,18 @@ async function runAfterClick() {
   // showAnswer(newAnsElement);
   container.addEventListener("click", function (e) {
     console.log(e.target === newAnsElement);
-    if (!active) return;
-    else if (active) {
+    if (active) {
       if (e.target === newAnsElement) {
         newAnsElement.style.backgroundColor = "";
         newAnsElement.classList.add("correctAnswer");
         currentScore++;
         active = false;
-        console.log("men");
       } else {
         e.target.style.backgroundColor = "";
         e.target.classList.add("wrongAnswer");
         newAnsElement.style.backgroundColor = "";
         newAnsElement.classList.add("correctAnswer");
         active = false;
-        console.log("women");
       }
     }
   });
