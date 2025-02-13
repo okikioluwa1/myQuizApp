@@ -345,31 +345,31 @@ container.insertAdjacentHTML("afterbegin", htmlMarkup);
 //Finding from the array of "options", the element of the correct answer
 currentData = quizData[currentDataIndex];
 
-const optionsArray = Array.from(document.querySelectorAll(".info-option"));
-const answerElement = optionsArray.find((p) => {
-  if (p.textContent === currentData.answer) return p;
-});
-
 //implementing click on different options
-const showAnswer = function (ansEle) {
+const showAnswer = function () {
   container.addEventListener("click", function (e) {
+    const optionsArray = Array.from(document.querySelectorAll(".info-option"));
+    const answerElement = optionsArray.find((p) => {
+      if (p.textContent === currentData.answer) return p;
+    });
     if (active) {
-      if (e.target === ansEle) {
-        ansEle.style.backgroundColor = "";
-        ansEle.classList.add("correctAnswer");
+      if (e.target === answerElement) {
+        answerElement.style.backgroundColor = "";
+        answerElement.classList.add("correctAnswer");
         currentScore++;
+        console.log(currentScore);
         active = false;
       } else {
         e.target.style.backgroundColor = "";
         e.target.classList.add("wrongAnswer");
-        ansEle.style.backgroundColor = "";
-        ansEle.classList.add("correctAnswer");
+        answerElement.style.backgroundColor = "";
+        answerElement.classList.add("correctAnswer");
         active = false;
       }
     }
   });
 };
-showAnswer(answerElement);
+showAnswer();
 
 //implementing timer of 15s for each question
 const timerEl = document.querySelector(".time");
@@ -395,23 +395,6 @@ const currentPage = document.querySelector(".current-page");
 const totalPage = document.querySelector(".total-page");
 currentPage.textContent = currentDataIndex + 1;
 totalPage.textContent = quizData.length;
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-let newAnsElement;
 
 const nextBtn = document.querySelector(".next-btn");
 
@@ -442,12 +425,6 @@ nextBtn.addEventListener("click", function () {
   startTimer();
 
   currentData = quizData[currentDataIndex];
-
-  //find from the "options" array the new answer Element
-  const optionsArray = Array.from(document.querySelectorAll(".info-option"));
-  newAnsElement = optionsArray.find((p) => {
-    if (p.textContent === currentData.answer) return p;
-  });
 });
 
 //using a promise to wait for the click on "nextBtn" before implementing click on the options
@@ -461,27 +438,7 @@ const waitForClick = function (element, event) {
 async function runAfterClick() {
   console.log("waiting for container click...");
   await waitForClick(nextBtn, "click");
-  console.log(newAnsElement.textContent);
-  console.log(active);
-
-  // showAnswer(newAnsElement);
-  container.addEventListener("click", function (e) {
-    console.log(e.target === newAnsElement);
-    if (active) {
-      if (e.target === newAnsElement) {
-        newAnsElement.style.backgroundColor = "";
-        newAnsElement.classList.add("correctAnswer");
-        currentScore++;
-        active = false;
-      } else {
-        e.target.style.backgroundColor = "";
-        e.target.classList.add("wrongAnswer");
-        newAnsElement.style.backgroundColor = "";
-        newAnsElement.classList.add("correctAnswer");
-        active = false;
-      }
-    }
-  });
+  showAnswer();
 }
 
 runAfterClick();
