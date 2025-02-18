@@ -161,6 +161,44 @@
     width: 100%;
   }
 }
+.completion_container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.completion_container p {
+  padding: 0 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.completion_container .crown {
+  font-size: 10rem;
+  color: #007bff;
+  margin: 2rem 0;
+}
+.completion_container .completion_btns {
+  margin: 2rem 0;
+  width: 100%;
+}
+.completion_container .completion_btns .quit, .completion_container .completion_btns .replay {
+  font-size: 100%;
+  padding: 0.3rem 0.5rem;
+  width: 35%;
+  box-shadow: none;
+  border: #007bff 1px solid;
+  border-radius: 5px;
+  max-width: 200px;
+}
+.completion_container .completion_btns .quit:hover, .completion_container .completion_btns .replay:hover {
+  background: #007bff;
+  color: #fff;
+}
+.completion_container .completion_btns .replay {
+  background: #007bff;
+  color: #fff;
+  margin-right: 1rem;
+}
+
 body {
   margin: 0;
   padding: 0;

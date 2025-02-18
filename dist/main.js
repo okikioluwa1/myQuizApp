@@ -324,6 +324,9 @@ let currentScore = 0;
 let active = true;
 let htmlMarkup;
 const container = document.querySelector(".main__info-markup");
+const entireContainer = document.querySelector(".main__info");
+const replayBtn = document.querySelector(".replay");
+const quitBtn = document.querySelector(".quit");
 
 //dynamic representation of the markup
 const generateMarkup = function (currentDataIndex) {
@@ -357,7 +360,7 @@ const showAnswer = function () {
         answerElement.style.backgroundColor = "";
         answerElement.classList.add("correctAnswer");
         currentScore++;
-        console.log(currentScore);
+        console.log(currentDataIndex);
         active = false;
       } else {
         e.target.style.backgroundColor = "";
@@ -365,6 +368,7 @@ const showAnswer = function () {
         answerElement.style.backgroundColor = "";
         answerElement.classList.add("correctAnswer");
         active = false;
+        console.log(currentDataIndex);
       }
     }
   });
@@ -425,6 +429,29 @@ nextBtn.addEventListener("click", function () {
   startTimer();
 
   currentData = quizData[currentDataIndex];
+
+  if (currentDataIndex === 5) {
+    const finalHtmlMarkup = `<div class="completion_container">
+    <i class="fa-solid fa-crown crown"></i>
+    <p>You've completed the Quiz!</p>
+    <p>
+      and congrats 🎉, you got <span class="final_score">${currentScore}</span> out of
+      <span class="total_score">${currentDataIndex}</span>
+    </p>
+
+     <div class="completion_btns">
+            <a href="./iquizPage.html">
+              <button class="replay btn">Replay Quiz</button>
+            </a>
+            <a href="./index.html">
+              <button class="quit btn">Quit Quiz</button>
+            </a>
+          </div>
+  </div>`;
+    active = false;
+    entireContainer.innerHTML = "";
+    entireContainer.insertAdjacentHTML("afterbegin", finalHtmlMarkup);
+  }
 });
 
 //using a promise to wait for the click on "nextBtn" before implementing click on the options

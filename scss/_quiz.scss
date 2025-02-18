@@ -104,3 +104,48 @@
     width: 100%;
   }
 }
+
+.completion_container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  p {
+    padding: 0 1rem;
+    font-weight: map-get($font-weights, "bold");
+    font-size: 1rem;
+  }
+
+  .crown {
+    font-size: 10rem;
+    color: $primary-color;
+    margin: 2rem 0;
+  }
+
+  .completion_btns {
+    margin: 2rem 0;
+    width: 100%;
+
+    .quit {
+      font-size: 100%;
+      padding: 0.3rem 0.5rem;
+      width: 35%;
+      box-shadow: none;
+      border: $primary-color 1px solid;
+      border-radius: 5px;
+      max-width: 200px;
+
+      &:hover {
+        background: $primary-color;
+        color: $neutral-color;
+      }
+    }
+
+    .replay {
+      @extend .quit;
+      background: $primary-color;
+      color: $neutral-color;
+      margin-right: 1rem;
+    }
+  }
+}
